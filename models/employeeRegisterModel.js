@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const registerSchema = mongoose.Schema({
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"User"
+    },
     personalInfo:{
         firstname:{type:String, },
         middlename:{type:String},

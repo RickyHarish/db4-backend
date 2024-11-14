@@ -3,6 +3,9 @@ import express from "express"
 import connectDB from './config/db.js'
 import dotenv from 'dotenv'
 import employeesRouter from './routes/employeesRouter.js'
+import authRouter from './routes/authRouter.js'
+import profileRouter from './routes/profileRouter.js'
+import contractRouter from './routes/contractRouter.js'
 
 dotenv.config()
 connectDB()
@@ -17,6 +20,9 @@ app.use(cors({
 app.use(express.json())
 
 app.use('/api/employees', employeesRouter)
+app.use('/api/auth', authRouter)
+app.use('/api/profiles', profileRouter)
+app.use('/api/contracts', contractRouter);
 
 
 const PORT = process.env.PORT || 5000
