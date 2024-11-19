@@ -43,4 +43,13 @@ const updateUserProfile = async (req, res) => {
   }
 };
 
-export {getUserProfile, updateUserProfile}
+const getAllProfiles=async(req, res)=>{
+  try{
+    const profiles = await Profile.find();
+    res.json(profiles)
+  }catch(error){
+    res.status(500).json({error: error.message})
+  }
+}
+
+export {getUserProfile, updateUserProfile, getAllProfiles}
